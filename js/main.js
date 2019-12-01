@@ -124,13 +124,23 @@ window.onload = () => {
     ( xhr ) => console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' ),
     ( error )=>  console.log( 'An error happened' )
     );
-
    
     window.addEventListener('resize', (e) => 
     {
         setSizes(canvas)
     }, false)
-
+    hammer.on('pinch',(e)=>
+    {
+        if (e.scale>1)
+        {
+            scale = e.scale
+        }
+        else
+        {
+            scale = -1-e.scale
+        }
+        viewControl('z','z', scale, scene, camera, false , -0.01, -1)
+    })
     hammer.on('pan', (e) => 
     {
         /* let Rollers = selectObjectsWithProperty(scene.children,'name','Roller')
