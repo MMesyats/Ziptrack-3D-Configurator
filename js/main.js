@@ -80,7 +80,7 @@ window.onload = () => {
     texture.repeat.set( 4, 4 );
 
     let loader = new THREE.OBJLoader();
-    loader.load('../assets/models/roller.obj',
+    loader.load('http://usence.com.au/configurator/assets/models/roller.obj',
         ( object ) => 
         {
             object.name = 'Roller'
@@ -97,7 +97,7 @@ window.onload = () => {
         ( error )=>  console.log( 'An error happened' )
     );
 
-    loader.load('../assets/models/house.obj',
+    loader.load('http://usence.com.au/configurator/assets/models/house.obj',
     ( object ) => 
     {
         scene.add( object )
