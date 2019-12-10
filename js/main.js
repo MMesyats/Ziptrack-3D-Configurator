@@ -43,6 +43,8 @@ window.onload = () => {
   renderer.shadowMap.type = THREE.BasicShadowMap;
 
   scene = new THREE.Scene();
+  texture = new THREE.TextureLoader().load(window.location.href+'assets/img/home.jpg');
+  scene.background = texture;
 
   camera = new THREE.PerspectiveCamera(
     45,
