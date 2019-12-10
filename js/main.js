@@ -83,7 +83,7 @@ window.onload = () => {
 
   let loader = new THREE.STLLoader();
   loader.load(
-    window.location.origin + "/assets/models/pelmet.STL",
+    window.location.href + "/assets/models/pelmet.STL",
     geometry => {
       let mesh = new THREE.Mesh(geometry, new THREE.MeshPhongMaterial());
       mesh.castShadow = true;
