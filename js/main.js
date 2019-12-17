@@ -1,27 +1,24 @@
-var fileInput, canvas, renderer, scene, camera, raycaster,mouse, orbitControl, transformControl;
+var fileInput, canvas, renderer, scene, camera, raycaster, mouse, orbitControl, transformControl;
 
 let setSizes = canvas => {
   let height = window.innerHeight,
-    width = window.innerWidth;
+      width = window.innerWidth;
   canvas.setAttribute("width", width);
   canvas.setAttribute("height", height);
 };
 
-let render = () =>
-{
+let render = () => {
   raycaster.setFromCamera(mouse, camera);
   renderer.render(scene, camera);
 }
 
 window.onload = () => {
   fileInput = document.getElementById('fileInput')
-  fileInput.addEventListener('change',(e)=>
-  {
+  fileInput.addEventListener('change', (e) => {
     let imgFile = fileInput.files[0];
-    
+
     let reader = new FileReader();
-    reader.onload = (e) =>
-    {
+    reader.onload = (e) => {
       let bg = new THREE.TextureLoader().load(e.target.result);
       scene.background = bg
       render()
@@ -37,14 +34,12 @@ window.onload = () => {
     mode: "rotate"
   };
 
-  renderer = new THREE.WebGLRenderer({canvas: canvas});
+  renderer = new THREE.WebGLRenderer({ canvas: canvas });
   renderer.setClearColor(0x333333);
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.BasicShadowMap;
 
   scene = new THREE.Scene();
-  texture = new THREE.TextureLoader().load(window.location.href+'assets/img/home.jpg');
-  scene.background = texture;
 
   camera = new THREE.PerspectiveCamera(
     45,
@@ -61,39 +56,40 @@ window.onload = () => {
 
   ablight = new THREE.AmbientLight(0xffffff, 0.5);
   scene.add(ablight);
-  
-  light = new  THREE.PointLight( 0xffffff, 0.4, 1000 );
-  light.position.set(0,0,300)
+
+  light = new THREE.PointLight(0xffffff, 0.4, 1000);
+  light.position.set(0, 0, 300)
   light.castShadow = true;
   scene.add(light)
 
   transformControl = new THREE.TransformControls(camera, canvas);
   transformControl.setMode("rotate");
   transformControl.addEventListener("change", render);
-  
+
   scene.add(transformControl)
   var params = {
-    loadFile : function() { 
-            fileInput.click(); 
+    loadFile: function () {
+      fileInput.click();
     }
   }
   gui
-    .add(foo, "mode", {Rotate: "rotate", Translate: "translate", Scale:'scale'})
+    .add(foo, "mode", { Rotate: "rotate", Translate: "translate", Scale: 'scale' })
     .onChange(val => transformControl.setMode(val));
   gui
-    .add(params,'loadFile').name('Upload_Background');
+    .add(params, 'loadFile').name('Upload_Background');
 
   let loader = new THREE.STLLoader();
   loader.load(
     window.location.href + "/assets/models/pelmet.STL",
     geometry => {
+      geometry.center();
       let mesh = new THREE.Mesh(geometry, new THREE.MeshPhongMaterial());
       mesh.castShadow = true;
       mesh.receiveShadow = false;
       console.log(mesh)
       gui
-        .addColor({color:0xffffff},'color')
-        .onChange((val)=>{ mesh.material.setValues({'color':val}); render();})
+        .addColor({ color: 0xffffff }, 'color')
+        .onChange((val) => { mesh.material.setValues({ 'color': val }); render(); })
         .name('Change color')
       scene.add(mesh);
       transformControl.attach(mesh);
@@ -112,7 +108,7 @@ window.onload = () => {
     false
   );
 
- 
+
 
   render();
 };
