@@ -64,6 +64,8 @@ window.onload = () => {
 
   transformControl = new THREE.TransformControls(camera, canvas);
   transformControl.setMode("rotate");
+  transformControl.showZ = false;
+  transformControl.showX = false;
   transformControl.addEventListener("change", render);
 
   scene.add(transformControl)
@@ -73,8 +75,21 @@ window.onload = () => {
     }
   }
   gui
-    .add(foo, "mode", { Rotate: "rotate", Translate: "translate", Scale: 'scale' })
-    .onChange(val => transformControl.setMode(val));
+    .add(foo, "mode", { Rotate: "rotate", Scale: 'scale' })
+    .onChange(val =>
+    {
+      if(val==='rotate')
+      {
+        transformControl.showZ = false;
+        transformControl.showX = false; 
+      } 
+      else
+      {
+        transformControl.showZ = true;
+        transformControl.showX = true; 
+      }
+      transformControl.setMode(val);
+    });
   gui
     .add(params, 'loadFile').name('Upload_Background');
 
