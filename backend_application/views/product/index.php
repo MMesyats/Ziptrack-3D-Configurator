@@ -12,7 +12,7 @@ header('Pragma : no-cache');
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="expires" content="Fri,31 Dec 2010 11:59:59 GMT" />
     <meta http-equiv="cache-control" content="no-cache">
-    <link rel="stylesheet" href="/template/css/main.css">
+    <link rel="stylesheet" href="/configurator/template/css/main.css">
     <title>Document</title>
 </head>
 
