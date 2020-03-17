@@ -15,7 +15,7 @@ export default {
     }),
     resolve({ preferBuiltins: true }),
     prefetchStatic({
-      endpoint: "http://localhost:8000/api/",
+      endpoint: "http://localhost:8000/api",
       apiNames: [
         "pelmets",
         "materials",

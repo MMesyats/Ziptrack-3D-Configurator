@@ -1,1 +1,1 @@
-export const API_ENDPOINT = "http://192.168.1.204:8000/api";
+export const API_ENDPOINT = "http://usence.com.au/configurator/api";
