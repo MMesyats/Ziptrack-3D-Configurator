@@ -1,0 +1,17 @@
+.pop-up
+{
+    width: min-content;
+    padding: 20px 0 0 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 2px 3px 6px #bbbbbb;
+    .color-picker
+    {
+        position: relative;
+        height: 200px;
+        width: 300px;
+    }
+}

@@ -1,0 +1,78 @@
+
+#modal {
+    display: none;
+    .open-modal &
+    {
+        display: block;
+        z-index: 1000;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        user-select: none;
+    }
+}
+
+.dark-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	height: 100%;
+	width: 100%;
+	background-color: rgba($color: #000000, $alpha: 0.8);
+}
+
+.open-modal .message
+{
+
+    width: 500px;
+    height: 300px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 10px rgba($color: #000000, $alpha: 0.2);
+    padding: 15px 25px;
+    animation: popUp 0.3s ease-in-out 0s;
+    &-header 
+    {
+        text-align: center;
+        font-size: 35px;
+        margin: 10px auto;
+    }
+    &-line 
+    {
+        margin: 20px auto;
+        width: 300px;
+        height: 2px;
+        border: none;
+        &-success
+        {
+            background-color: #2fd66f;
+        }
+        &-fail 
+        {
+            background-color: #ed1548;
+        }
+    }
+    &-text 
+    {
+        margin: 10px auto;
+        text-align: justify;
+        font-size: 25px;        
+    }
+}
+
+@keyframes popUp
+{
+    0%
+    {
+        transform: scale(0.8);
+    }
+    30%
+    {
+        transform: scale(1.1);
+    }
+    100%
+    {
+        transform: scale(1);
+    }
+}

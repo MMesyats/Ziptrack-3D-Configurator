@@ -1,0 +1,52 @@
+{
+  "name": "ziptrak_front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "clear && rollup -c rollup.config.server.js && node dist/server.js"
+  },
+  "keywords": [
+    "js",
+    "node",
+    "react"
+  ],
+  "author": "Maxim Mesyats <mmesyatz@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/react-hooks": "^3.1.3",
+    "apollo-boost": "^0.4.7",
+    "axios": "^0.19.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "express-middleware-rollup": "^3.0.0",
+    "graphql": "^14.6.0",
+    "graphql-tag": "^2.10.3",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-three-fiber": "^4.0.20",
+    "three": "^0.114.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@babel/preset-env": "^7.8.6",
+    "@babel/preset-react": "^7.8.3",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-json": "^4.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "autoprefixer": "^9.7.4",
+    "eslint": "^6.8.0",
+    "postcss-loader": "^3.0.0",
+    "rollup": "^2.0.2",
+    "rollup-plugin-analyzer": "^3.2.2",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-generate-html-template": "^1.6.1",
+    "rollup-plugin-postcss": "^2.4.1",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-scss": "^2.1.0",
+    "rollup-plugin-svg": "^2.0.0",
+    "rollup-plugin-uglify": "^6.0.4",
+    "rollup-plugin-terser": "^5.3.0"
+  }
+}
