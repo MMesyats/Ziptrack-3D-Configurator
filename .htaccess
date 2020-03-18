@@ -1,3 +1,5 @@
+Header set Access-Control-Allow-Origin "https://ziptrak-configurator.herokuapp.com/"
+
 RedirectMatch 403 /\..*$
 
 RewriteCond %{REQUEST_FILENAME} !-f
