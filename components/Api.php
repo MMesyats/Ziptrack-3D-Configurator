@@ -51,17 +51,14 @@ abstract class Api
     protected function response($data, $status = 500)
     {
         header("HTTP/1.1 " . $status . " " . $this->requestStatus($status));
-        header("Content-Type: application/json");
-        header("Access-Control-Allow-Origin: *");
-        $data = json_encode($data);
-        echo $data;
-        return $data;
+        return json_encode($data);;
     }
 
     private function requestStatus($code)
     {
         $status = array(
             200 => 'OK',
+            204 => 'No Content',
             404 => 'Not Found',
             405 => 'Method Not Allowed',
             500 => 'Internal Server Error',
