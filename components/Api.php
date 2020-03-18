@@ -14,7 +14,6 @@ abstract class Api
 
     public function __construct()
     {
-
         header("Access-Control-Allow-Orgin: *");
         header("Access-Control-Allow-Methods: *");
         header("Access-Control-Allow-Headers: *");
@@ -52,7 +51,9 @@ abstract class Api
     protected function response($data, $status = 500)
     {
         header("HTTP/1.1 " . $status . " " . $this->requestStatus($status));
-        return json_encode($data);;
+        $json = json_encode($data);
+        echo $json;
+        return $json;
     }
 
     private function requestStatus($code)
