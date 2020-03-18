@@ -1,4 +1,4 @@
-Header set Access-Control-Allow-Origin "https://ziptrak-configurator.herokuapp.com/"
+Header set Access-Control-Allow-Origin "https://ziptrak-configurator.herokuapp.com"
 
 RedirectMatch 403 /\..*$
 
